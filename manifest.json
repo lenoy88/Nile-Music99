@@ -1,0 +1,16 @@
+{
+  "name": "Nasty Nile",
+  "short_name": "Nasty Nile",
+  "start_url": "/Nile-Music99/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "description": "Nile Music Where bars Will Kill You!!!",
+  "icons": [
+    {
+      "src": "nile.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    }
+  ]
+}
