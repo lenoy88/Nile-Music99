@@ -175,21 +175,12 @@
 
 
 
-<button onclick="likeSong()">Like ❤️</button>
-<p>Likes: <span id="likes">0</span></p>
 
 <br>
 
 
 
-      <div class="comment-section">
-        <h3>Comments</h3>
-        <input type="text" id="commentInput" placeholder="Write a comment...">
-        <br>
-        <button onclick="addComment()">Post Comment</button>
 
-        <div id="commentList"></div>
-      </div>
     </div>
 
   </div>
@@ -198,34 +189,7 @@
     <p>&copy; 2026 Nile Music. All rights reserved.</p>
   </footer>
 
-  <script>
-    let likes = 0;
-
-    function likeSong() {
-      likes = likes + 1;
-      document.getElementById("likes").textContent = likes;
-    }
-
-    function addComment() {
-      let input = document.getElementById("commentInput");
-      let commentText = input.value;
-
-      if (commentText === "") {
-        alert("Please type a comment first.");
-        return;
-      }
-
-      let commentList = document.getElementById("commentList");
-
-      let newComment = document.createElement("div");
-      newComment.className = "comment";
-      newComment.textContent = commentText;
-
-      commentList.appendChild(newComment);
-
-      input.value = "";
-    }
-  </script>
+ 
 
 </body>
 </html>
