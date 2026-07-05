@@ -175,7 +175,24 @@
 
 <br>
 
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
+  const firebaseConfig = {
+    apiKey: "AIzaSyCX2g7ZUb-qaGfdZ-Et41-SHarGTIu9f_0",
+    authDomain: "nasty-nile.firebaseapp.com",
+    projectId: "nasty-nile",
+    storageBucket: "nasty-nile.firebasestorage.app",
+    messagingSenderId: "858288854935",
+    appId: "1:858288854935:web:03ffa3f8e4a9ffdadad6d2"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+</script>
+</body>
+</html>
 
 
 
@@ -194,6 +211,7 @@
 
  
 
+</script>
 </body>
 </html>
 
