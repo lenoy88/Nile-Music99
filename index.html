@@ -4,32 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title> Nile </title>
-  <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#000000">
+  <title>Nasty Nile</title>
 
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#000000">
   <link rel="apple-touch-icon" href="nile.jpg">
-  
 
   <style>
-    .nile-pic {
-    width: 220px;
-    border-radius: 12px;
-    display: block;
-    margin: 20px auto;
-}
-  body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-image: url("nile.jpg2.png");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  color: black;
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      background-image: url("nile.jpg2.png");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: black;
+    }
 
     header {
-      background: linear-gradient(to right, #000, red);
+      background: #000;
+      color: white;
       text-align: center;
       padding: 35px 20px;
     }
@@ -50,74 +45,83 @@
       margin: 30px auto;
     }
 
-    .intro {
-      background-color: #f2f2f2;
+    .intro,
+    .song-card,
+    .comment-section {
+      background-color: rgba(255, 255, 255, 0.92);
       color: black;
       padding: 20px;
       border-radius: 12px;
       margin-bottom: 25px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .intro {
       text-align: center;
     }
 
-    .song-card {
-      background-color: #f2f2f2;
-      color: black;
-      padding: 20px;
+    .nile-pic {
+      width: 220px;
       border-radius: 12px;
-      margin-bottom: 25px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      display: block;
+      margin: 20px auto;
     }
 
-    .song-card h2 {
-      color: #1db954;
-      margin-bottom: 5px;
+    h2, h3 {
+      color: #111;
     }
 
     .artist-name {
       font-weight: bold;
-      color: #1db954;
+      color: #000;
     }
 
-    audio {
+    iframe {
       width: 100%;
+      border-radius: 12px;
       margin-top: 15px;
     }
 
     button {
-      background-color: #1db954;
+      background-color: #000;
       color: white;
+      padding: 12px 18px;
       border: none;
-      padding: 10px 14px;
-      margin-top: 10px;
       border-radius: 8px;
+      margin-top: 10px;
       cursor: pointer;
       font-weight: bold;
     }
 
     button:hover {
-      background-color: #159c46;
+      background-color: #333;
     }
 
-    .comment-section {
-      margin-top: 18px;
-      background-color: #181818;
-      padding: 15px;
-      border-radius: 10px;
+    .like-area {
+      margin-top: 20px;
+    }
+
+    #likes {
+      font-weight: bold;
     }
 
     input {
-      width: 95%;
-      padding: 10px;
-      border: none;
+      width: 100%;
+      padding: 12px;
       border-radius: 8px;
-      margin-top: 8px;
+      border: 1px solid #aaa;
+      margin-top: 10px;
+      box-sizing: border-box;
+      font-size: 16px;
     }
 
     .comment {
-      background-color: #333;
-      margin-top: 8px;
-      padding: 8px;
-      border-radius: 6px;
+      background-color: #f2f2f2;
+      color: black;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 10px;
+      border-left: 4px solid #000;
     }
 
     footer {
@@ -127,19 +131,13 @@
       padding: 20px;
       margin-top: 40px;
     }
-    .nile-pic {
-    width: 220px;
-    border-radius: 12px;
-    display: block;
-    margin: 20px auto;
-}
   </style>
 </head>
 
 <body>
 
   <header>
-    <h1> Nasty Mafuckin Nile !!!</h1>
+    <h1>Nasty Nile</h1>
     <p>Official music platform for Nasty Nile.</p>
   </header>
 
@@ -148,8 +146,10 @@
     <div class="intro">
       <h2>Welcome to Nile’s Music Platform</h2>
       <p>
-        New platform for all thing Nile, Great music and great conversations!!
+        This is a new music platform where fans can listen to Nile’s music,
+        like songs, and leave comments.
       </p>
+
       <img src="nile.jpg" alt="Picture of Nile" class="nile-pic">
     </div>
 
@@ -158,49 +158,32 @@
       <p><span class="artist-name">Artist:</span> Nile</p>
       <p>Tap play to listen to Nile’s latest music on your phone or computer.</p>
 
-    
+      <iframe
+        data-testid="embed-iframe"
+        style="border-radius:12px"
+        src="https://open.spotify.com/embed/album/42esrWMbBQSSPghoL2X2U?utm_source=generator"
+        width="100%"
+        height="352"
+        frameborder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
 
+      <div class="like-area">
+        <button onclick="likeSong()">Like ❤️</button>
+        <p>Likes: <span id="likes">0</span></p>
+      </div>
+    </div>
 
-<iframe 
-  data-testid="embed-iframe"
-  style="border-radius:12px"
-  src="https://open.spotify.com/embed/album/42ZesrWMbBQSSPghoL2X2U?utm_source=generator"
-  width="100%"
-  height="352"
-  frameborder="0"
-  allowfullscreen=""
-  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-  loading="lazy">
-</iframe>
+    <div class="comment-section">
+      <h3>Comments</h3>
 
-<br>
+      <input type="text" id="commentInput" placeholder="Write a comment...">
 
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
-  import { getFirestore } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+      <button onclick="addComment()">Post Comment</button>
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyCX2g7ZUb-qaGfdZ-Et41-SHarGTIu9f_0",
-    authDomain: "nasty-nile.firebaseapp.com",
-    projectId: "nasty-nile",
-    storageBucket: "nasty-nile.firebasestorage.app",
-    messagingSenderId: "858288854935",
-    appId: "1:858288854935:web:03ffa3f8e4a9ffdadad6d2"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-</script>
-</body>
-</html>
-
-
-
-<br>
-
-
-
-
+      <div id="commentList"></div>
     </div>
 
   </div>
@@ -209,9 +192,103 @@
     <p>&copy; 2026 Nile Music. All rights reserved.</p>
   </footer>
 
- 
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+    import {
+      getFirestore,
+      doc,
+      getDoc,
+      setDoc,
+      updateDoc,
+      increment,
+      collection,
+      addDoc,
+      query,
+      orderBy,
+      onSnapshot,
+      serverTimestamp
+    } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
-</script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCX2g7ZUb-qaGfdZ-Et41-SHarGTIu9f_0",
+      authDomain: "nasty-nile.firebaseapp.com",
+      projectId: "nasty-nile",
+      storageBucket: "nasty-nile.firebasestorage.app",
+      messagingSenderId: "858288854935",
+      appId: "1:858288854935:web:03ffa3f8e4a9ffdadad6d2"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const likeDocRef = doc(db, "songs", "first-track");
+
+    async function loadLikes() {
+      const likeDoc = await getDoc(likeDocRef);
+
+      if (likeDoc.exists()) {
+        document.getElementById("likes").textContent = likeDoc.data().likes || 0;
+      } else {
+        await setDoc(likeDocRef, { likes: 0 });
+        document.getElementById("likes").textContent = 0;
+      }
+    }
+
+    window.likeSong = async function () {
+      const alreadyLiked = localStorage.getItem("nastyNileLiked");
+
+      if (alreadyLiked === "yes") {
+        alert("You already liked this song.");
+        return;
+      }
+
+      await updateDoc(likeDocRef, {
+        likes: increment(1)
+      });
+
+      localStorage.setItem("nastyNileLiked", "yes");
+      loadLikes();
+    };
+
+    window.addComment = async function () {
+      const input = document.getElementById("commentInput");
+      const commentText = input.value.trim();
+
+      if (commentText === "") {
+        alert("Please type a comment first.");
+        return;
+      }
+
+      await addDoc(collection(db, "comments"), {
+        text: commentText,
+        createdAt: serverTimestamp()
+      });
+
+      input.value = "";
+    };
+
+    function loadComments() {
+      const commentList = document.getElementById("commentList");
+      const q = query(collection(db, "comments"), orderBy("createdAt", "desc"));
+
+      onSnapshot(q, function (snapshot) {
+        commentList.innerHTML = "";
+
+        snapshot.forEach(function (doc) {
+          const comment = doc.data();
+
+          const div = document.createElement("div");
+          div.className = "comment";
+          div.textContent = comment.text;
+
+          commentList.appendChild(div);
+        });
+      });
+    }
+
+    loadLikes();
+    loadComments();
+  </script>
+
 </body>
 </html>
-
